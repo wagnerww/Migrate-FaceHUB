@@ -1,6 +1,6 @@
 `...::: Projeto criado por ®WW(Wagner Ricardo Wagner) | wagnerricardonet@gmail.com :::..`
 
-## Protótipo Web em ReactJS
+## FaceHUB
 
 `- yarn`
 

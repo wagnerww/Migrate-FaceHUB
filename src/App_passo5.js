@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 
 import api from "./Services/api";
-import Repositorios from "./Components/Repositorios";
 
 class App extends Component {
   state = {
@@ -25,8 +24,7 @@ class App extends Component {
     this.setState({ userSearch: value });
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleSubmit = async () => {
     try {
       const respUser = await api.get(`/${this.state.userSearch}`);
       const {
@@ -86,14 +84,12 @@ class App extends Component {
       <div id="app" className="container">
         <h1>FaceHUB</h1>
         <div className="containerAction">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              placeholder="Usuário GitHUB"
-              onChange={this.handleChange}
-            />
-            <button type="submit">Buscar</button>
-          </form>
+          <input
+            type="text"
+            placeholder="Usuário GitHUB"
+            onChange={this.handleChange}
+          />
+          <button onClick={this.handleSubmit}>Buscar</button>
         </div>
         {!mensagem ? (
           <div id="profile" className="containerProfile">
@@ -113,7 +109,13 @@ class App extends Component {
             </div>
             <div className="repositories">
               {repositorios.map(repo => (
-                <Repositorios repo={repo} />
+                <div className="item">
+                  <h4>{repo.name}</h4>
+                  <span>{repo.description}</span>
+                  <a target="_blank" href={repo.html_url}>
+                    {repo.html_url}
+                  </a>
+                </div>
               ))}
             </div>
           </div>

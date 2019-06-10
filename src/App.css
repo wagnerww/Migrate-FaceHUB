@@ -1,55 +1,100 @@
+:root {
+  /* Variables of colors */
+  --color-bkg: #1b5f8b;
+  --color-font: #000000;
+  --title-color: #f4f4f4;
+  --color-button-bkg: #2ecc71;
+  --color-button-bkg-hover: #2fee71;
+  --color-button-font: #f4f4f4;
+  --color-box: #f4f4f4;
+
+  /* Variables of inputs, button */
+  --elm-padding: 10px;
+  --elm-border-radius: 6px;
+  --elm-font-size: 0.9em;
+
+  /* Variables of box */
+  --box-padding: 10px;
+  --box-margin-bottom: 20px;
+  --box-border-radius: 6px;
+}
+
 * {
   margin: 0px;
-  padding:0px;
+  padding: 0px;
   box-sizing: border-box;
+  outline: none;
 }
 
-body{
-  font-family: 'Roboto', sans-serif;
-  background: #1B5F8B;
-  color:#000000;
-  line-height: 1.5;
+/* Deixar por ultimo */
+html {
+  font-size: 16px;
 }
 
-#app.container{
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--color-bkg);
+  color: var(--color-font);
+  line-height: 1.6;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+body * a {
+  color: var(--color-font);
+  text-decoration: underline;
+}
+
+#app.container {
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-#app.container  H1{
-  font-size: 50px;
-  color:#F4F4F4;
+#app.container h1 {
+  /* Deixar por ultimo 
+    colocar primeiro 50px
+  */
+  font-size: 4em;
+  color: var(--title-color);
   font-weight: bold;
   font-style: italic;
 }
 
-#app.container .containerAction{
+#app.container h3 {
+  color: var(--title-color);
+}
+
+#app.container .containerAction {
   display: flex;
+  justify-content: center;
+  width: 100%;
   margin: 15px;
 }
 
-#app.container .containerAction input{
-  padding: 10px;
-  border-radius: 6px;
+#app.container .containerAction input {
+  padding: var(--elm-padding);
+  border-radius: var(--elm-border-radius);
   border: none;
-  width: 300px;
+  width: 250px;
   margin-right: 10px;
+  font-size: var(--elm-font-size);
 }
 
-#app.container .containerAction button{
-  background: #2ECC71;
-  border-radius: 6px;
-  padding: 10px;
-  border:none;
-  color:#F4F4F4;
+#app.container .containerAction button {
+  background: var(--color-button-bkg);
+  border-radius: var(--elm-border-radius);
+  padding: var(--elm-padding);
+  border: none;
+  color: var(--color-button-font);
   font-weight: bold;
   cursor: pointer;
+  font-size: var(--elm-font-size);
 }
 
-#profile.containerProfile{
+#profile.containerProfile {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -57,17 +102,17 @@ body{
   width: 100%;
 }
 
-#profile.containerProfile .user{
+#profile.containerProfile .user {
   display: flex;
   flex-direction: column;
   min-width: 268px;
   max-width: 268px;
   min-height: 277px;
-  background: #F4F4F4;
+  background: var(--color-box);
   margin-right: 20px;
-  border-radius: 6px;
-  padding: 10px; 
-  margin-bottom: 15px;
+  border-radius: var(--box-border-radius);
+  padding: var(--box-padding);
+  margin-bottom: var(--box-margin-bottom);
 }
 
 #profile.containerProfile .user div {
@@ -75,31 +120,34 @@ body{
   justify-content: center;
   width: 100%;
   margin-top: -60px;
-  margin-bottom: 20px;
-
+  margin-bottom: var(--box-margin-bottom);
 }
 
-#profile.containerProfile .user div img{
+#profile.containerProfile .user div img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
 
-#profile.containerProfile .repositories{
+#profile.containerProfile .repositories {
   display: flex;
   flex-direction: column;
   max-width: 400px;
 }
 
-#profile.containerProfile .repositories .item{
+#profile.containerProfile .repositories .item {
   display: flex;
   flex-direction: column;
-  background: #F4F4F4;
-  border-radius: 6px;
+  background: var(--color-box);
+  border-radius: var(--box-border-radius);
   width: 100%;
-  padding: 10px;
+  padding: var(--box-padding);
   margin-bottom: 10px;
 }
 
-
-
+/* Deixar por ultimo */
+@media only screen and (min-width: 280px) and (max-width: 500px) {
+  html {
+    font-size: 14px;
+  }
+}

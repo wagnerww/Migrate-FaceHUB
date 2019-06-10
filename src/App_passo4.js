@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 
 import api from "./Services/api";
-import Repositorios from "./Components/Repositorios";
 
 class App extends Component {
   state = {
@@ -14,7 +13,6 @@ class App extends Component {
     repositoriosQtd: 0,
     seguidores: 0,
     pais: "",
-    repositorios: [],
     userSearch: "",
     mensagem: "Informe um usuário para buscar o perfil no GitHub",
     isSuccess: false
@@ -25,8 +23,7 @@ class App extends Component {
     this.setState({ userSearch: value });
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleSubmit = async () => {
     try {
       const respUser = await api.get(`/${this.state.userSearch}`);
       const {
@@ -40,27 +37,17 @@ class App extends Component {
         location
       } = respUser.data;
 
-      try {
-        const respUserRepos = await api.get(`/${this.state.userSearch}/repos`);
-
-        this.setState({
-          avatar: avatar_url,
-          nome: name,
-          email,
-          bio,
-          blog,
-          seguidores: followers,
-          repositoriosQtd: public_repos,
-          pais: location,
-          mensagem: "",
-          repositorios: respUserRepos.data
-        });
-      } catch (error) {
-        this.setState({
-          mensagem:
-            "...Ops houve uma falha ao buscar o usuário, tente novamente!"
-        });
-      }
+      this.setState({
+        avatar: avatar_url,
+        nome: name,
+        email,
+        bio,
+        blog,
+        seguidores: followers,
+        repositoriosQtd: public_repos,
+        pais: location,
+        mensagem: ""
+      });
     } catch (error) {
       this.setState({
         mensagem: "...Ops houve uma falha ao buscar o usuário, tente novamente!"
@@ -78,22 +65,19 @@ class App extends Component {
       repositoriosQtd,
       seguidores,
       pais,
-      mensagem,
-      repositorios
+      mensagem
     } = this.state;
 
     return (
       <div id="app" className="container">
         <h1>FaceHUB</h1>
         <div className="containerAction">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              placeholder="Usuário GitHUB"
-              onChange={this.handleChange}
-            />
-            <button type="submit">Buscar</button>
-          </form>
+          <input
+            type="text"
+            placeholder="Usuário GitHUB"
+            onChange={this.handleChange}
+          />
+          <button onClick={this.handleSubmit}>Buscar</button>
         </div>
         {!mensagem ? (
           <div id="profile" className="containerProfile">
@@ -112,9 +96,36 @@ class App extends Component {
               </div>
             </div>
             <div className="repositories">
-              {repositorios.map(repo => (
-                <Repositorios repo={repo} />
-              ))}
+              <div className="item">
+                <h4>angular-css-grid</h4>
+                <span>exemplo de css grid no angular</span>
+                <a>https://github.com/wagnerww/angular-css-grid</a>
+              </div>
+              <div className="item">
+                <h4>angular-css-grid</h4>
+                <span>exemplo de css grid no angular</span>
+                <a>https://github.com/wagnerww/angular-css-grid</a>
+              </div>
+              <div className="item">
+                <h4>angular-css-grid</h4>
+                <span>exemplo de css grid no angular</span>
+                <a>https://github.com/wagnerww/angular-css-grid</a>
+              </div>
+              <div className="item">
+                <h4>angular-css-grid</h4>
+                <span>exemplo de css grid no angular</span>
+                <a>https://github.com/wagnerww/angular-css-grid</a>
+              </div>
+              <div className="item">
+                <h4>angular-css-grid</h4>
+                <span>exemplo de css grid no angular</span>
+                <a>https://github.com/wagnerww/angular-css-grid</a>
+              </div>
+              <div className="item">
+                <h4>angular-css-grid</h4>
+                <span>exemplo de css grid no angular</span>
+                <a>https://github.com/wagnerww/angular-css-grid</a>
+              </div>
             </div>
           </div>
         ) : (
