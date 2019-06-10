@@ -1,33 +1,105 @@
-.App {
-  text-align: center;
+* {
+  margin: 0px;
+  padding:0px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: 'Roboto', sans-serif;
+  background: #1B5F8B;
+  color:#000000;
+  line-height: 1.5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#app.container{
   display: flex;
   flex-direction: column;
+  justify-content:center;
   align-items: center;
+  min-height: 100vh;
+}
+
+#app.container  H1{
+  font-size: 50px;
+  color:#F4F4F4;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#app.container .containerAction{
+  display: flex;
+  margin: 15px;
+}
+
+#app.container .containerAction input{
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  width: 300px;
+  margin-right: 10px;
+}
+
+#app.container .containerAction button{
+  background: #2ECC71;
+  border-radius: 6px;
+  padding: 10px;
+  border:none;
+  color:#F4F4F4;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#profile.containerProfile{
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 50px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+#profile.containerProfile .user{
+  display: flex;
+  flex-direction: column;
+  min-width: 268px;
+  max-width: 268px;
+  min-height: 277px;
+  background: #F4F4F4;
+  margin-right: 20px;
+  border-radius: 6px;
+  padding: 10px; 
+  margin-bottom: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#profile.containerProfile .user div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: -60px;
+  margin-bottom: 20px;
+
 }
+
+#profile.containerProfile .user div img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#profile.containerProfile .repositories{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+#profile.containerProfile .repositories .item{
+  display: flex;
+  flex-direction: column;
+  background: #F4F4F4;
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
